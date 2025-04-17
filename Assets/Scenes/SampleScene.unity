@@ -365,7 +365,7 @@ MonoBehaviour:
   leftWall: {fileID: 1967395226}
   rightWall: {fileID: 1489226857}
   gameWidth: 2.8
-  wallThickness: 0.1
+  wallThickness: 1
   initialWallHeight: 30
   extraHeightBuffer: 30
   obstacleGenerator: {fileID: 256160939}
@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 1489226857}
   - component: {fileID: 1489226856}
   - component: {fileID: 1489226855}
+  - component: {fileID: 1489226858}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: WallRight
@@ -689,7 +690,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 719c9398aa3ffe94e8b5d3492dcfd591, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -736,6 +737,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1489226858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489226854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860f3fed895343f46ae7fd4e8ace09f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveMaxDistance: 10
+  waveWidth: 4
+  waveAmplitude: 1
+  waveSpeed: 3
+  waveDuration: 5
 --- !u!1 &1967395223
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +765,7 @@ GameObject:
   - component: {fileID: 1967395226}
   - component: {fileID: 1967395225}
   - component: {fileID: 1967395224}
+  - component: {fileID: 1967395227}
   m_Layer: 0
   m_Name: Wall
   m_TagString: WallLeft
@@ -819,7 +838,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 719c9398aa3ffe94e8b5d3492dcfd591, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -866,6 +885,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967395227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967395223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860f3fed895343f46ae7fd4e8ace09f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveMaxDistance: 5
+  waveWidth: 2
+  waveAmplitude: 0.1
+  waveSpeed: 2
+  waveDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

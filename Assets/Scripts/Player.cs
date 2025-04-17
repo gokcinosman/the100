@@ -44,10 +44,28 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("WallLeft"))
         {
             SetMoveDirection(1);
+
+            // Duvar dalga efektini tetikle
+            WallShader wallShader = collision.gameObject.GetComponent<WallShader>();
+            if (wallShader != null)
+            {
+                // Çarpışma noktasını al
+                ContactPoint2D contact = collision.GetContact(0);
+                wallShader.StartWaveEffect(contact.point);
+            }
         }
         else if (collision.gameObject.CompareTag("WallRight"))
         {
             SetMoveDirection(-1);
+
+            // Duvar dalga efektini tetikle
+            WallShader wallShader = collision.gameObject.GetComponent<WallShader>();
+            if (wallShader != null)
+            {
+                // Çarpışma noktasını al
+                ContactPoint2D contact = collision.GetContact(0);
+                wallShader.StartWaveEffect(contact.point);
+            }
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
