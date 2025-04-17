@@ -152,19 +152,24 @@ public class ObstacleGenerator : MonoBehaviour
     // Pattern 3: Alternating obstacles from left and right
     private void GenerateAlternatingPattern(float y, int rowNumber)
     {
-        // Determine the gap size (player needs at least jumpWidth to pass)
         float gapSize = jumpWidth + Random.Range(0, 1f);
-        // Place an obstacle on either the left or right
         bool obstacleOnLeft = Random.value > 0.5f;
+
+        // Calculate the actual playable width
+        float playableWidth = gameWidth - gameStartPosition;
+        // Calculate obstacle width leaving space for the gap
+        float obstacleWidth = (playableWidth - gapSize) * 0.8f; // Making obstacle slightly smaller than available space
+
         if (obstacleOnLeft)
         {
-            float width = gameWidth - gapSize;
-            CreateObstacle(gameStartPosition, y, width, obstacleHeight, rowNumber, "Left");
+            // Left obstacle - position it just after gameStartPosition
+            CreateObstacle(gameStartPosition, y, obstacleWidth, obstacleHeight, rowNumber, "Left");
         }
         else
         {
-            float width = gameWidth - gapSize;
-            CreateObstacle(gapSize, y, width, obstacleHeight, rowNumber, "Right");
+            // Right obstacle - position it at the right side of the playable area
+            float rightX = gameWidth - obstacleWidth;
+            CreateObstacle(rightX, y, obstacleWidth, obstacleHeight, rowNumber, "Right");
         }
     }
     // Pattern 4: ZigZag pattern with obstacles

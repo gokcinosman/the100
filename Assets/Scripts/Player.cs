@@ -49,9 +49,18 @@ public class Player : MonoBehaviour
         {
             SetMoveDirection(-1);
         }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Die();
+        }
     }
     private void SetMoveDirection(int direction)
     {
         moveDirection = direction;
+    }
+    private void Die()
+    {
+        Debug.Log("Player has died!");
+        Time.timeScale = 0;
     }
 }
